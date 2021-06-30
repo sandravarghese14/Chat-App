@@ -1,0 +1,99 @@
+.container{
+    top:2%;
+}
+
+.infoBar{
+    background-color: #293B5F;
+}
+
+.toName{
+    font-size: large;
+    color: whitesmoke;
+}
+span .opt button{
+   padding: 3px;
+   margin:3px;
+  
+}
+
+.infoBar span{
+    margin-right:10px;
+}
+.messages{
+    height: 60vh;
+    background-image: url('../../../../assets/images/ct.jpeg');
+    background-position: center;
+    overflow-y: scroll !important;
+    
+}
+
+.my-message{
+   
+    max-width:25vw;
+    margin-left:50vw;   
+}
+
+.contact-message{
+   
+    max-width:20vw;
+    margin-right:0;
+    
+}
+
+.messageBody{
+    min-height:fit-content;
+    min-width: fit-content;
+    max-width:35vw;
+    background-color:#d8dee4;
+}
+img{
+    width:100px;
+    height: 100px;
+}
+
+.userHandle{
+    font-size: small;
+    height: 30px;
+    background-color: #d3e9ee;
+    color: white;
+}
+
+.my-message .userHandle{
+    background-color: #47597E;
+    color: white
+}
+
+.contact-message .userHandle{
+    background-color: #03256C;
+    color:white;
+}
+
+.my-message .userHandle .menu{
+    margin-left:85%;
+    cursor: pointer;
+    color: white
+}
+
+
+.contact-message .userHandle .menu{
+    margin-left:50%;
+    /* margin-top:-15px; */
+    cursor: pointer;
+    color:#DEEDF0;
+}
+
+/* .modal1{
+    width:200px;
+} */
+.add{
+    background-color: #293B5F;
+    color: white;
+    padding: 3px;
+    margin-left: 15%;
+    cursor: pointer;  
+    font-family: fantasy;
+    margin-top: 9px;
+    padding-top: 10px;
+}
+  
+  

@@ -1,0 +1,70 @@
+<main>
+    <div class="row">
+        <!-- BG Image -->
+        <div id="imageContainer" class="col-lg-6">
+        </div>
+
+        <!-- Login Form -->
+        <div id="formContainer" class="col-lg-5">
+              <h2 style="font-family: fantasy;">Chat Infinity <i class="fa fa-comments"></i></h2>
+
+              <div class="card text-center shadow">
+                <div class="alert alert-danger text-center" *ngIf="errorMsg">
+                    {{errorMsg}}
+                </div>
+                <div class="alert alert-success text-center" *ngIf="successMsg">
+                    {{successMsg}}
+                </div>
+             <!-- <div class="card-header">
+               SIGN IN
+             </div> -->
+             <div class="card-body">
+            
+                 <!-- FORM BODY -->
+                 <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            
+                    <div class="form-group">
+                        <label style="margin-left: -380px;">Email</label>
+                        <input type="email" class="form-control" name="email"   required [(ngModel)]=User.email
+                        #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^([a-zA-Z\._]{1,30})@([a-zA-Z]{1,20}).([A-Za-z]{2,6})?.([a-zA-Z]{2,5})">
+                    </div>
+                        <div *ngIf="email.errors && (email.invalid || email.touched)">
+                           <small class="text-danger" *ngIf="email.errors.required" [class.d-none]="email.valid || email.untouched">Email cannot be empty</small>
+                           <small class="text-danger" *ngIf="email.errors.pattern" [class.d-none]="email.valid || email.untouched">Invalid email pattern</small>
+                        </div>
+                    
+                    <div class="form-group">
+                     <label style="margin-left: -348px;">Username</label>
+                     <input type="text" class="form-control" name="username" required [(ngModel)]=User.username
+                     #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+                 </div>
+                     <div *ngIf="username.errors && (username.invalid || username.touched)">
+                        <small class="text-danger" *ngIf="username.errors.required" [class.d-none]="username.valid || username.untouched">Username cannot be empty</small>
+                     </div>
+            
+                 <div class="form-group">
+                     <label style="margin-left: -348px;">Password</label>
+                     <input type="password" class="form-control" name="password"  required [(ngModel)]=User.password
+                     #password="ngModel" [class.is-invalid]="password.invalid && password.touched" pattern="^[\w\S]{8,16}$">
+                 </div>
+                 <div *ngIf="password.errors && (password.invalid || password.touched)">
+                     <small class="text-danger" *ngIf="password.errors.required" [class.d-none]="password.valid || password.untouched">Password cannot be empty</small>
+                     <small class="text-danger" *ngIf="password.errors.pattern" [class.d-none]="password.valid || password.untouched">Password must be minimum 8 characters</small>
+                  </div>
+                  <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-default" >SIGN UP</button>
+                
+            <!-- /Form Body -->
+              </form>
+              </div>
+              <h5><a style="color: #6c81aa ;" routerLink="/">Login</a></h5>
+             
+              
+              </div>
+            
+              
+        </div> 
+
+    </div>
+
+</main>
+

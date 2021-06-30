@@ -1,0 +1,50 @@
+.image{
+    background-image: url('../../../../assets/images/do.jpeg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 60vh;
+    width: 70vw;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+h5{
+    color: #293B5F;
+}
+
+
+.add{
+    background-color: #293B5F;
+    color: white;
+    padding: 5px;
+    margin-left: 15%;
+    cursor: pointer;  
+    font-family: fantasy;
+    margin-top: 20px;
+}
+
+td img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+}
+
+td {
+    text-align: center;
+    justify-content: center;
+}
+form{
+    margin-bottom: 10px;
+}
+.header-contact{
+    color: white;
+    padding: 3px;
+    background-color:#2c3e61;
+    margin-left: 15%;
+}
+.msger-inputarea {
+    display: flex;
+    padding: 10px;
+    border-top: var(--border);
+    background: #eee;
+  }

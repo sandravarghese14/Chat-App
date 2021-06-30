@@ -1,0 +1,115 @@
+<div class="chat">
+    <h5 style="font-family: fantasy;" class="header">Chat Infinity <i class="fa fa-comments"></i> 
+        <span style="font-family: fantasy;" class="username"> Welcome {{username}}</span>
+        <span  class="logout" (click)="_auth.logOutUser()" style="cursor: pointer;"> Logout <i class="fas fa-sign-out-alt"></i></span></h5>
+    
+    <div class="row">
+    <!-- Profile Pic AND Contacts -->
+    <div id="users" class="col-lg-3">
+
+        <div class="profilePic">
+            
+            <img src="http://localhost:3000/uploads/{{user.image}}" *ngIf="user.image;else noDP">
+            <ng-template #noDP>
+              <img src="../../../assets/images/ui.png">
+            </ng-template>
+            <h6 style="margin-left: -15px;" class="text-center">{{username}}</h6>
+            <p style="margin-left: -10x;" class="dp text-center" data-toggle="modal" data-target="#changeDPModal"><i class="fas fa-camera"></i>Change DP</p>
+        </div>
+
+        <div class="contacts">
+            <h6 class="header-contact"> My Contacts <i class="far fa-address-book"></i></h6>
+             <!-- Search form -->
+                    <form class="d-flex input-group w-auto">
+                        <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Find users "
+                        aria-label="Find"
+                        />
+                        <button
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        data-mdb-ripple-color="dark"
+                        >
+                        FIND <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <!-- Contact List -->
+                    <div class="contactlist">
+                  
+                      <span   class="usertypes" (click)="DisplayOnlineUsers()">ONLINE USERS</span>  
+                    <!-- Online Users -->
+                  
+                    <table class="table table-striped table-hover" *ngIf="displayOnlineUsers">
+                        <tbody>   
+                          <div *ngIf="onlineUserList.length <=1 " class="text-center" style="color: #293B5F;">NO USERS ONLINE    </div>
+                    
+                          <tr *ngFor = "let i of onlineUserList" >
+                            <div *ngIf="i.user != username" (click)="createRoom(i)" >
+                              <!-- <td><img src="http://localhost:3000/uploads/{{i.image}}"></td> -->
+                              <td style="margin-top:20px;">{{i.user}}</td>
+                              <!-- <td><span class="status"></span></td> -->
+                            </div>
+                          </tr>                
+                        </tbody>
+                      </table>
+                      <!-- Display Contacts -->
+                      <table class="table table-striped table-hover" *ngIf="displayMyContacts">
+                        <tbody>
+                          <div *ngIf="contactsList.length <1" class="text-center" style="color: #293B5F;">NO USERS ONLINE </div>
+
+                          <tr *ngFor = "let i of contactsList" >
+                            <div *ngIf="!i.isMuted" (click)="createRoomwithContact(i.name)" >
+                              <!-- <td><img src="http://localhost:3000/uploads/{{i.image}}"></td> -->
+                              
+                              <td style="margin-top:20px;">{{i.name}}</td>
+                              <!-- <td><span class="status"></span></td> -->
+                            </div>
+                            </tr>
+                              
+                              <div class="mutedContact" style="margin-left: 10px;"> <B>MUTED CONTACTS</B></div>
+                              <tr  *ngFor = "let i of contactsList" >
+                              <div *ngIf="i.isMuted" (click)="createRoomwithContact(i.name)" >
+                                <!-- <td><img src="http://localhost:3000/uploads/{{i.image}}"></td> -->
+                                <td style="margin-top:20px;">{{i.name}}</td>
+                              </div>
+                              </tr>                
+                        </tbody>
+                      </table>
+                    </div> <br>
+
+        </div>
+
+    </div>
+    <!-- Chat Space -->
+    <div id="chat-space" class="col-lg-9">
+        <router-outlet></router-outlet>
+    </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="changeDPModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture</h5>
+
+      </div>
+      <div class="modal-body">
+          <form #dpForm="ngForm" (ngSubmit)="changeDP(dpForm)">
+            <div class="form-group">
+              <input type="file" class="form-control dp-image" name="image" id="input-image" (change)="selectImage($event)" style="border: none;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+          </form>
+      </div>
+
+    </div>
+  </div>
+</div>

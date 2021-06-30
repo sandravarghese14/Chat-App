@@ -1,0 +1,53 @@
+/* .imageContainer,.formContainer {
+    border: 1px solid black;
+
+} */
+
+*{
+  top:10vh;
+  left:20vh;
+  bottom: 10vh;
+ 
+}
+#imageContainer{
+    
+    background-image: url('../../../assets/images/dp.jpeg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 70vh;
+    width: 80vw;
+    image-rendering: high-quality;
+
+ 
+}
+
+#formContainer .card{
+   left: 0;
+   top: 10px;
+   width:80%;
+   height: 50vh;
+   
+}
+
+h2,i{
+    color: #293B5F;
+ 
+}
+
+.btn{
+   
+    margin:20px;
+    background-color:#d9e1f3;
+}
+
+.card-header{
+    color: #293B5F;
+    font-size: larger;
+    box-shadow: 20px 17px 7px 6px rgba(194,186,186,0.56);
+-webkit-box-shadow: 20px 17px 7px 6px rgba(194,186,186,0.56);
+-moz-box-shadow: 20px 17px 7px 6px rgba(194,186,186,0.56);
+}
+
+.alert{
+    left:0 !important;
+}

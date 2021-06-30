@@ -1,0 +1,57 @@
+
+  <div class="add col-lg-8 text-center"  data-target="#addContactModal" data-toggle="modal">Life is a matter of courtship and wooing, flirting and chatting
+   <i class="fas fa-heart"></i></div>
+<div class="image"></div>
+<h5 class="text-center" style="margin-top: 3%; font-family: fantasy;">Search for users, pick your contact and start Chatting! <i class="far fa-comments"></i></h5>
+    <!-- Add Contact -->
+   <div class="row" style="margin-left:5px">
+   <div class="add col-lg-8 text-center"  data-target="#addContactModal" data-toggle="modal">ADD CONTACT <i class="fas fa-user-plus"></i></div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade modal1" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel">Search Users</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                   <!-- Search form -->
+                    <form class="d-flex input-group w-auto"  #searchForm="ngForm" (ngSubmit)="onSubmit()" >
+                        <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Enter username.."
+                        aria-label="Search" 
+                        required
+                        name="username"
+                        [(ngModel)]=searchUser                
+                        />
+                        <button type="button" class="btn btn-outline-success">Search</button>
+                        </form>
+    
+                        <div *ngIf="results">
+                           <h6 > Total results found:  {{results.length}}</h6>
+                          <table class="table table-striped  table-hover">     
+                            <tbody>
+                              <tr *ngFor="let user of results">
+                                <td><img src="http://localhost:3000/uploads/{{user.image}}"></td>
+                                <td>{{user.username}}</td>
+                                <td><button class="btn btn-outline-info" (click)="addContact(user)">ADD</button></td>
+                               
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
